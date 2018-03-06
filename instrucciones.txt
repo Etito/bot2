@@ -1,0 +1,6 @@
+apretar tecla windows 
+escribir cmd
+entrar
+escribir cd desktop
+escribir cd bot
+escribir node .

@@ -1,0 +1,3 @@
+    "discord_token":"NDE3MjAyMDI5NDMwMDQ2NzMw.DXPlOg.MxqJhB0T7oKAXSj8NkAzQYgLaiY",
+
+    "bot_controller":"417232584217722901", 
