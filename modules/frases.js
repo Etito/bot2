@@ -11,8 +11,6 @@ var Frases={
                     +" "+col2[Math.random() * col2.length>>0]
                     +" "+col3[Math.random() * col3.length>>0]
                     +" "+col4[Math.random() * col4.length>>0];
-
-    
         message.channel.sendMessage(retu);
         
 

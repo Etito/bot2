@@ -9,9 +9,19 @@ const fs=require('fs');
 const getYoutubeId=require('get-youtube-id');
 const fetchVideoInfo=require('youtube-info');
 
+var express=require('express');
+var app=express();
 var config=JSON.parse(fs.readFileSync('settings.json','utf-8'));
 const commands=JSON.parse(fs.readFileSync('model/commands.json','utf-8'));
 
+
+app.get("/",function(req,res){
+    res.send("test ho ho ho");
+});
+
+app.listen(process.env.PORT,function(){
+    console.log("EXPRESS SERVER IS RUNNING ON PORT 8080");
+});
 //console.log(frases);
 const yt_api_key=config.yt_api_key;
 const bot_controller=config.bot_controller;
