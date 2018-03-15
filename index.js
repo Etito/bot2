@@ -19,7 +19,7 @@ app.get("/",function(req,res){
     res.send("test ho ho ho");
 });
 
-app.listen(process.env.PORT,function(){
+app.listen(8080,function(){
     console.log("EXPRESS SERVER IS RUNNING ON PORT 8080");
 });
 //console.log(frases);
