@@ -4,6 +4,7 @@ const modules=require('./modules/frases.js');
 const com=require('./modules/commands.js');
 const client=new Discord.Client();
 const  ytdl= require('ytdl-core');
+const texToSpeech=require('./modules/speech.js');
 const request =require('request');
 const fs=require('fs');
 const getYoutubeId=require('get-youtube-id');
@@ -60,6 +61,10 @@ client.on('message',(message)=>{
             break;
         case "-com":
             com.commands.getCommands(message);
+        break;
+        case "-bye":
+        texToSpeech.speech.hablar(message
+            ,com.commands.list["-bye"].text);
         break;
         default:
             if(com.commands.getPrefixes().includes(message.content)){
