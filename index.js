@@ -67,8 +67,13 @@ client.on('message',(message)=>{
             ,com.commands.list["-bye"].text);
         break;
         default:
-            if(com.commands.getPrefixes().includes(message.content)){
+         
+            /*if(com.commands.getPrefixes().includes(message.content)){
                 playIdqsaen(com.commands.list[message.content].url,message);
+            }*/
+            if(com.commands.getPrefixes().includes(message.content)){
+                playMp3Qsaen(com.commands.list[message.content].path
+                            ,message);
             }
             break;
     }
@@ -132,6 +137,19 @@ function playIdqsaen(str,message)
        });
     })
     .catch(console.log("NOOO"));
+}
+function playMp3Qsaen(path,message){
+    let voiceChannel=message.member.voiceChannel;
+    voiceChannel.join()
+    .then(connection=>{
+        let dispatcher=connection.playFile('files'+path);
+        dispatcher.on("end",end=>{
+            voiceChannel.leave();
+        })
+    })
+    .catch(err=>console.log(err));
+
+
 }
 
 
