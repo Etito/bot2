@@ -1,0 +1,11 @@
+events.js:112
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: Error: Connection not established within 15 seconds.
+    at VoiceConnection.authenticateFailed (C:\Users\Etito\Documents\bot\node_modules\discord.js\src\client\voice\VoiceConnection.js:258:26)
+    at connectTimeout.client.setTimeout (C:\Users\Etito\Documents\bot\node_modules\discord.js\src\client\voice\VoiceConnection.js:280:18)
+    at Timeout.setTimeout (C:\Users\Etito\Documents\bot\node_modules\discord.js\src\client\Client.js:422:7)
+    at ontimeout (timers.js:466:11)
+    at tryOnTimeout (timers.js:304:5)
+    at Timer.listOnTimeout (timers.js:267:5)

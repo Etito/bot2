@@ -8,9 +8,7 @@ var Commands={
             text+="\n"+e+": "+this.list[e].desc;
         });
         text+="```";
-        message.channel.sendMessage(text);
-        
-
+        message.channel.send(text);
     },
     getPrefixes:function a(){
         return Object.keys(this.list);

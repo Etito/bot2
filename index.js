@@ -1,49 +1,38 @@
-
+"use strict";
 const Discord= require('discord.js');
 const modules=require('./modules/frases.js');
 const com=require('./modules/commands.js');
 const client=new Discord.Client();
-const  ytdl= require('ytdl-core');
+const ytdl= require('ytdl-core');
 const texToSpeech=require('./modules/speech.js');
 const request =require('request');
 const fs=require('fs');
 const getYoutubeId=require('get-youtube-id');
 const fetchVideoInfo=require('youtube-info');
-
-var express=require('express');
-var app=express();
-var config=JSON.parse(fs.readFileSync('settings.json','utf-8'));
-const commands=JSON.parse(fs.readFileSync('model/commands.json','utf-8'));
-
+const config=JSON.parse(fs.readFileSync('settings.json','utf-8'));
+const yt_api_key=config.yt_api_key;
+const bot_controller=config.bot_controller;
+const prefix =config.prefix;
+const discord_token=config.discord_token;
+const express=require('express');
+const app=express();
 
 app.get("/",function(req,res){
     res.send("test ho ho ho");
 });
 
 app.listen(process.env.PORT,function(){
-    console.log("EXPRESS SERVER IS RUNNING ON PORT 8080");
+    console.log("IM UP!!");
 });
-//console.log(frases);
-const yt_api_key=config.yt_api_key;
-const bot_controller=config.bot_controller;
-const prefix =config.prefix;
-const discord_token=config.discord_token;
 
-             
 
-//console.log(commands);
-               
-                
 client.on('ready',()=>{console.log("login success ")});
 client.on('message',(message)=>{
-   
-    //console.log(message);
+    console.log("CLient ID DIscord");
+    console.log(message.channel.id)
+
     const member = message.member;
     const user =message.author.username;
-    //console.log("USER!"+user.username);
-    const args=  message.content.split(" ").slice(1).join(" ");
-    const mess =message.content.toLowerCase();
-    const prefix=config.prefix;
    
     //controller for music
     var queue =[];
@@ -54,7 +43,7 @@ client.on('message',(message)=>{
     var skipReq=0;
     var skuppers=[];
 
-    switch(message.content)
+    switch(message.content.toLocaleLowerCase())
     {  
         case "-hsh":
             modules.frases.newFrase(message);
@@ -67,19 +56,22 @@ client.on('message',(message)=>{
             ,com.commands.list["-bye"].text);
         break;
         default:
-         
+
+        
             /*if(com.commands.getPrefixes().includes(message.content)){
                 playIdqsaen(com.commands.list[message.content].url,message);
             }*/
             if(com.commands.getPrefixes().includes(message.content)){
                 playMp3Qsaen(com.commands.list[message.content].path
                             ,message);
+                          
             }
             break;
     }
 });
 
-client.login(discord_token).catch(err=>console.log("wea"));
+client.login(discord_token)
+.catch(err=>console.log(err));
 
 function isYoutube(str){
     return str.toLowerCase().indexOf("youtube.com")>-1;
@@ -119,12 +111,17 @@ function playMusic(id,message){
     }).catch(console.log("WTF"));
     
 }
-function playIdqsaen(str,message)
+/**
+ * Reproduce Video de youtube a apartir de Id entregada
+ * @param {String} id 
+ * @param {Message} message 
+ */
+function playIdqsaen(id,message)
 {
     
     voiceChannel=message.member.voiceChannel;
     voiceChannel.join().then( function(connection){
-       stream=ytdl("https://www.youtube.com/watch?v="+str,{filter:'audioonly'});
+       stream=ytdl("https://www.youtube.com/watch?v="+id,{filter:'audioonly'});
        skipRe=0;
        skippers=[];
        disPatcher=connection.playStream(stream).on("end",()=>{
@@ -138,13 +135,19 @@ function playIdqsaen(str,message)
     })
     .catch(console.log("NOOO"));
 }
-function playMp3Qsaen(path,message){
+/**
+ * Funcion que reproduce Archivo Mp3
+ * @param {String} pathMp3 
+ * @param {Message} message 
+ */
+function playMp3Qsaen(pathMp3,message){
     let voiceChannel=message.member.voiceChannel;
     voiceChannel.join()
     .then(connection=>{
-        let dispatcher=connection.playFile('files'+path);
+        let dispatcher=connection.playFile('files'+pathMp3);
         dispatcher.on("end",end=>{
             voiceChannel.leave();
+            message.delete()
         })
     })
     .catch(err=>console.log(err));
