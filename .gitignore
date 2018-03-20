@@ -1,0 +1,10 @@
+#json configs
+settings.json
+package-lock.json
+
+
+#vscode 
+.vscode/
+
+#modules
+node_modules/

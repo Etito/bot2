@@ -16,6 +16,7 @@ const prefix =config.prefix;
 const discord_token=config.discord_token;
 const express=require('express');
 const app=express();
+const SoundRequest=require('./modules/SoundRequest.js');
 
 app.get("/",function(req,res){
     res.send("test ho ho ho");
@@ -24,26 +25,35 @@ app.get("/",function(req,res){
 app.listen(process.env.PORT,function(){
     console.log("IM UP!!");
 });
+const queuMap={};
 
-
+//console.log(q.keypair)
 client.on('ready',()=>{console.log("login success ")});
 client.on('message',(message)=>{
-    console.log("CLient ID DIscord");
-    console.log(message.channel.id)
-
+    console.log('queue',queuMap)
     const member = message.member;
+    const guildId=message.channel.id;
+    //const voiceChannelId=member.voiceChannel.id;
     const user =message.author.username;
-   
-    //controller for music
-    var queue =[];
-    var isPlaying=false;
-    var disPatcher=null;
-    // voice 
-    var voiceChannel=null;
-    var skipReq=0;
-    var skuppers=[];
 
-    switch(message.content.toLocaleLowerCase())
+    const content=message.content.toLocaleLowerCase();
+    const objQueue={
+        cont:content,
+        isPlaying:false
+    }
+    console.log("chanel id",guildId)
+    //console.log("member voice chanel id",voiceChannelId)
+  
+    
+    
+    
+
+    // voice 
+    let voiceChannel=null;
+    let skipReq=0;
+    let skuppers=[];
+    
+    switch(content)
     {  
         case "-hsh":
             modules.frases.newFrase(message);
@@ -56,15 +66,22 @@ client.on('message',(message)=>{
             ,com.commands.list["-bye"].text);
         break;
         default:
-
-        
-            /*if(com.commands.getPrefixes().includes(message.content)){
-                playIdqsaen(com.commands.list[message.content].url,message);
-            }*/
-            if(com.commands.getPrefixes().includes(message.content)){
-                playMp3Qsaen(com.commands.list[message.content].path
+            //pregunta is el comando existe
+            if(com.commands.getPrefixes().includes(content)){
+                //pregunta si el canal ya ha ingresado un objeto a la cola
+              /*  if( Object.keys(queuMap).includes(guildId)){
+                    console.log("includes true")
+                    queuMap[guildId].push(objQueue);
+                }else{
+                    console.log("includes false")
+                    queuMap[guildId]=[];
+                    queuMap[guildId].push(objQueue);
+                } 
+                console.log('queuamap',queuMap)*/
+                playMp3Qsaen(com.commands.list[content].path
                             ,message);
-                          
+                
+                         
             }
             break;
     }
@@ -118,22 +135,30 @@ function playMusic(id,message){
  */
 function playIdqsaen(id,message)
 {
-    
-    voiceChannel=message.member.voiceChannel;
-    voiceChannel.join().then( function(connection){
-       stream=ytdl("https://www.youtube.com/watch?v="+id,{filter:'audioonly'});
-       skipRe=0;
-       skippers=[];
-       disPatcher=connection.playStream(stream).on("end",()=>{
-          connection.disconnect();
-          voiceChannel.leave();
-           message.delete()
-           .then(msg => console.log(`Deleted message from ${msg.author}`))
-           .catch(console.error);
+    const guildId=message.channel.id;
+    if(Object.keys(queuMap).includes(guildId)){
+        do
+        {
+            queuMap[guildId].isPlaying=true
+            voiceChannel=message.member.voiceChannel;
+            voiceChannel.join().then( function(connection){
+            stream=ytdl("https://www.youtube.com/watch?v="+id,{filter:'audioonly'});
+            skipRe=0;
+            skippers=[];
+            disPatcher=connection.playStream(stream).on("end",()=>{
+                connection.disconnect();
+                message.delete()
+                .then(msg => queuMap[guildId].splice(0,1) )
+                .catch(console.error);
 
-       });
-    })
-    .catch(console.log("NOOO"));
+            });
+            })
+            .catch(console.log("NOOO"));
+        }while(!queuMap[guildId].length>0)
+        voiceChannel.leave();
+      
+    }
+
 }
 /**
  * Funcion que reproduce Archivo Mp3
@@ -155,4 +180,30 @@ function playMp3Qsaen(pathMp3,message){
 
 }
 
-
+function playMp3Qsaen2(pathMp3,message){
+    // if()
+    const guildId=message.channel.id;
+    const voiceChannel=message.member.voiceChannel;
+    if(Object.keys(queuMap).includes(guildId)){
+     while(!queuMap[guildId].length>0)
+     {
+         let path=com.commands.list[queuMap[guildId][0].cont].path
+         console.log("wtf",queuMap[guildId][0].cont)
+         voiceChannel.join()
+         .then(connection=>{
+             let dispatcher=connection.playFile('files'+path);
+             dispatcher.on("end",end=>{
+                 message.delete()
+                 queuMap[guildId].splice(0,1) 
+                 if(queuMap[guildId].length==0)
+                 playMp3Qsaen(pathMp3,message);
+             })
+         })
+         .catch(err=>console.log(err));
+ 
+     }
+        
+        
+     }
+ }
+ 
