@@ -22,7 +22,7 @@ app.get("/",function(req,res){
     res.send("test ho ho ho");
 });
 
-app.listen(process.env.PORT,function(){
+app.listen(process.env.PORT ||3000,function(){
     console.log("IM UP!!");
 });
 const queuMap={};
@@ -64,6 +64,10 @@ client.on('message',(message)=>{
         case "-bye":
         texToSpeech.speech.hablar(message
             ,com.commands.list["-bye"].text);
+        break;
+        case "-yc":
+        texToSpeech.speech.hablar(message
+            ,com.commands.list["-yc"].text);
         break;
         default:
             //pregunta is el comando existe

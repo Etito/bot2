@@ -45,5 +45,6 @@
     "-rs":{"desc":"record scratch","url":"ktVvuLX_Xso","path":"/Scratch.mp3"},
     "-hsh":{"desc":"hablar sin hablar","url":"","path":""},
     "-cb":{"desc":"cala a sua boca ","url":"ONFJzSbZL84","path":"/CALABOCAMACACO.mp3"},
-    "-bye":{"desc":"saku  chao chao", "url":"","text":"ya cabros me voy a acostar, cuidensedescansenqueesténbienchaochao","path":""}
+    "-bye":{"desc":"saku  chao chao", "url":"","text":"ya cabros me voy a acostar, cuidensedescansenqueesténbienchaochao","path":""},
+    "-yc":{"desc":"ya callate", "url":"","text":" ya, caallate","path":""}
 }
