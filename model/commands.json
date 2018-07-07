@@ -47,5 +47,10 @@
     "-bye":{"desc":"saku  chao chao", "url":"","text":"ya cabros me voy a acostar, cuidensedescansenqueesténbienchaochao","path":""},
     "-yc":{"desc":"ya callate", "url":"","text":" ya, caallate","path":""},
 	"-urss":{"desc":"Himno URSS", "url":"","text":"Himno URSS","path":"/URS Anthem.mp3"},
-	"-hello":{"desc":"Hello Mother Fucker :3", "url":"","text":"Hello Mother Fucker :3","path":"/HelloMotherFucker.mp3"}
+	"-hello":{"desc":"Hello Mother Fucker :3", "url":"","text":"Hello Mother Fucker :3","path":"/HelloMotherFucker.mp3"},
+	"-yeah":{"desc":"CSI Yeah", "url":"","text":"CSI Yeah","path":"/CSIYEAH.mp3"},
+	"-rw":{"desc":"CTM que esta rica esta huea", "url":"","text":"CTM que esta rica esta huea","path":"/Rica.mp3"},
+	"-darling1":{"desc":"Daring, ojayo!", "url":"","text":"Daring, ojayo!","path":"/Darlin.mp3"},
+	"-darling2":{"desc":"Daaaaring", "url":"","text":"Daaaaring","path":"/Darlin2.mp3"}
+	
 }
