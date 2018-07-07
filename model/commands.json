@@ -46,5 +46,6 @@
     "-cb":{"desc":"cala a sua boca ","url":"ONFJzSbZL84","path":"/CALABOCAMACACO.mp3"},
     "-bye":{"desc":"saku  chao chao", "url":"","text":"ya cabros me voy a acostar, cuidensedescansenqueesténbienchaochao","path":""},
     "-yc":{"desc":"ya callate", "url":"","text":" ya, caallate","path":""},
-	"-urss":{"desc":"Himno URSS", "url":"","text":"Himno URSS","path":"/URS Anthem.mp3"}
+	"-urss":{"desc":"Himno URSS", "url":"","text":"Himno URSS","path":"/URS Anthem.mp3"},
+	"-hello":{"desc":"Hello Mother Fucker :3", "url":"","text":"Hello Mother Fucker :3","path":"/HelloMotherFucker.mp3"}
 }
