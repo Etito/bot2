@@ -27,7 +27,6 @@
     "-pr":{"desc":"pranked","url":"z-nfbDXTiHg","path":"/Pranked.mp3"},
     "-ha":{"desc":"haleluya","url":"GNrzbz6z9HQ","path":"/Hallelujah.mp3"},
     "-ass":{"desc":"asshole","url":"a9j3HQmwqPM","path":"/Fuckingsshole.mp3"},
-    "-ruin":{"desc":"we ruin everything","url":"B9zC-gH6k8U","path":""},
     "-hpn":{"desc":"the office it's happening","url":"vrQFBYgwQW8","path":"/ItsHappening.mp3"},
     "-why":{"desc":"why","url":"Ktt_nI-odF0","path":"/Whyy.mp3"},
     "-sd":{"desc":"#penita","url":"7ODcC5z6Ca0","path":"/SadViolin.mp3"},
@@ -46,5 +45,6 @@
     "-hsh":{"desc":"hablar sin hablar","url":"","path":""},
     "-cb":{"desc":"cala a sua boca ","url":"ONFJzSbZL84","path":"/CALABOCAMACACO.mp3"},
     "-bye":{"desc":"saku  chao chao", "url":"","text":"ya cabros me voy a acostar, cuidensedescansenqueesténbienchaochao","path":""},
-    "-yc":{"desc":"ya callate", "url":"","text":" ya, caallate","path":""}
+    "-yc":{"desc":"ya callate", "url":"","text":" ya, caallate","path":""},
+	"-urss":{"desc":"Himno URSS", "url":"","text":"Himno URSS","path":"/URS Anthem.mp3"}
 }
