@@ -28,6 +28,7 @@ var queuMap = {};
 client.on('ready', () => { console.log("login success ") });
 client.on('message', (message) => {
     console.log('queue', queuMap)
+
     const member = message.member;
     const guildId = message.channel.id;
     //const voiceChannelId=member.voiceChannel.id;
@@ -69,7 +70,6 @@ client.on('message', (message) => {
                 } else {
                     console.log("includes false")
                     queuMap[guildId] = new Array;
-                    queuState[guildId] = new Array;
                     playMp3Qsaen(com.commands.list[content].path
                         , message, guildId);
                     queuMap[guildId].push(objQueue);
@@ -109,7 +109,6 @@ function playMp3Qsaen(pathMp3, message, gid) {
                         playMp3Qsaen(com.commands.list[con].path,message, gid);
 
                     } else {
-                        queuState[gid].state = false;
                         console.log("pre",queuMap);
                         delete queuMap[gid];
                         console.log("pste",queuMap);
