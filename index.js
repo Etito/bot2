@@ -14,10 +14,11 @@ const app = express();
 app.listen(process.env.PORT || 3000, function () {
     console.log("Q saen!!");
 });
+client.login(discord_token)
+    .catch(err => console.log(err));
 var queuMap = {};
 
-//console.log(q.keypair)
-client.on('ready', () => { console.log("login success ") });
+client.on('ready', () => { console.log("im in... ") });
 client.on('message', (message) => {
     console.log('queue', queuMap)
 
@@ -55,30 +56,18 @@ client.on('message', (message) => {
         default:
             //pregunta is el comando existe
             if (com.commands.getPrefixes().includes(content)) {
-
-                if (Object.keys(queuMap).includes(guildId)) {
-                    console.log("includes true")
-                    queuMap[guildId].push(objQueue);
-                } else {
-                    console.log("includes false")
-                    queuMap[guildId] = new Array;
-                    playMp3Qsaen(com.commands.list[content].path
-                        , message, guildId);
-                    queuMap[guildId].push(objQueue);
-
-
-                }
-                console.log('queuamap', queuMap)
-
-
-
+                Object.keys(queuMap).includes(guildId)?queuMap[guildId].push(objQueue)
+                            :startQueue(com.commands.list[content].path,message,guildId,objQueue);
             }
             break;
     }
 });
 
-client.login(discord_token)
-    .catch(err => console.log(err));
+function startQueue(path,message,guildId,objQueue){
+    queuMap[guildId] = new Array;
+    playMp3Qsaen(path, message,guildId);
+    queuMap[guildId].push(objQueue);
+}
 
 
 /**
@@ -101,9 +90,7 @@ function playMp3Qsaen(pathMp3, message, gid) {
                         playMp3Qsaen(com.commands.list[con].path,message, gid);
 
                     } else {
-                        console.log("pre",queuMap);
                         delete queuMap[gid];
-                        console.log("pste",queuMap);
                         voiceChannel.leave();
                     }
                 }).catch(
