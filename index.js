@@ -3,24 +3,16 @@ const Discord = require('discord.js');
 const modules = require('./modules/frases.js');
 const com = require('./modules/commands.js');
 const client = new Discord.Client();
-const ytdl = require('ytdl-core');
 const texToSpeech = require('./modules/speech.js');
-const request = require('request');
 const fs = require('fs');
-const getYoutubeId = require('get-youtube-id');
-const fetchVideoInfo = require('youtube-info');
 const config = JSON.parse(fs.readFileSync('settings.json', 'utf-8'));
-const yt_api_key = config.yt_api_key;
-const bot_controller = config.bot_controller;
-const prefix = config.prefix;
 const discord_token = config.discord_token;
 const express = require('express');
 const app = express();
-const SoundRequest = require('./modules/SoundRequest.js');
 
 
 app.listen(process.env.PORT || 3000, function () {
-    console.log("IM UP!!");
+    console.log("Q saen!!");
 });
 var queuMap = {};
 
