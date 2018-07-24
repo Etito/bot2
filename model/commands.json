@@ -50,8 +50,8 @@
 	"-hello":{"desc":"Hello Mother Fucker :3", "url":"","text":"Hello Mother Fucker :3","path":"/HelloMotherFucker.mp3"},
 	"-yeah":{"desc":"CSI Yeah", "url":"","text":"CSI Yeah","path":"/CSIYEAH.mp3"},
 	"-rw":{"desc":"CTM que esta rica esta huea", "url":"","text":"CTM que esta rica esta huea","path":"/Rica.mp3"},
-	"-darling1":{"desc":"Daring, ojayo!", "url":"","text":"Daring, ojayo!","path":"/Darlin.mp3"},
-    "-darling2":{"desc":"Daaaaring", "url":"","text":"Daaaaring","path":"/Darlin2.mp3"},
+	"-dr":{"desc":"Daring, ojayo!", "url":"","text":"Daring, ojayo!","path":"/Darlin.mp3"},
+    "-dr1":{"desc":"Daaaaring", "url":"","text":"Daaaaring","path":"/Darlin2.mp3"},
     "-cari":{"desc":"hola soy cari alvarz", "url":"","text":"","path":"/holasoycary.mp3"},
     "-eco":{"desc":"economia + grande", "url":"","text":"","path":"/economia.mp3"},
     "-expo":{"desc":"expropiese ", "url":"","text":"","path":"/expo.mp3"}
