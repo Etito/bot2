@@ -25,7 +25,6 @@ client.on('message', (message) => {
 
     const member = message.member;
     const guildId = message.channel.id;
-    //const voiceChannelId=member.voiceChannel.id;
     const user = message.author.username;
 
     const content = message.content.toLocaleLowerCase();

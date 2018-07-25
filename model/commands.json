@@ -54,5 +54,8 @@
     "-dr1":{"desc":"Daaaaring", "url":"","text":"Daaaaring","path":"/Darlin2.mp3"},
     "-cari":{"desc":"hola soy cari alvarz", "url":"","text":"","path":"/holasoycary.mp3"},
     "-eco":{"desc":"economia + grande", "url":"","text":"","path":"/economia.mp3"},
-    "-expo":{"desc":"expropiese ", "url":"","text":"","path":"/expo.mp3"}
+    "-expo":{"desc":"expropiese ", "url":"","text":"","path":"/expo.mp3"},
+    "-stfu":{"desc":"stfu ", "url":"","text":"","path":"/stfu.mp3"},
+    "-dl":{"desc":"Dilusional ", "url":"","text":"","path":"/dilusional.mp3"},
+    "-4m":{"desc":"mother russia ", "url":"","text":"","path":"/4mrs.mp3"}
 }
