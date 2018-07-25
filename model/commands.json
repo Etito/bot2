@@ -59,5 +59,7 @@
     "-jp":{"desc":"jpxbox664 ", "url":"","text":"","path":"/jpxbox.mp3"},
     "-sl":{"desc":"Silencio wn ", "url":"","text":"","path":"/silencio.mp3"},
     "-mx":{"desc":"saludos  ", "url":"","text":"","path":"/max.mp3"},
-    "-4m":{"desc":"mother russia ", "url":"","text":"","path":"/4mrs.mp3"}
+    "-4m":{"desc":"mother russia ", "url":"","text":"","path":"/4mrs.mp3"},
+    "-qb":{"desc":"q bueno q se gfue  ", "url":"","text":"","path":"/qbueno.mp3"},
+    "-am":{"desc":"andate al amierda  ", "url":"","text":"","path":"/andatealamierda.mp3"}
 }
