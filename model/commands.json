@@ -56,6 +56,8 @@
     "-eco":{"desc":"economia + grande", "url":"","text":"","path":"/economia.mp3"},
     "-expo":{"desc":"expropiese ", "url":"","text":"","path":"/expo.mp3"},
     "-stfu":{"desc":"stfu ", "url":"","text":"","path":"/stfu.mp3"},
-    "-dl":{"desc":"Dilusional ", "url":"","text":"","path":"/dilusional.mp3"},
+    "-jp":{"desc":"jpxbox664 ", "url":"","text":"","path":"/jpxbox.mp3"},
+    "-sl":{"desc":"Silencio wn ", "url":"","text":"","path":"/silencio.mp3"},
+    "-mx":{"desc":"saludos  ", "url":"","text":"","path":"/max.mp3"},
     "-4m":{"desc":"mother russia ", "url":"","text":"","path":"/4mrs.mp3"}
 }
