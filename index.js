@@ -17,6 +17,7 @@ app.listen(process.env.PORT || 3000, function () {
 client.login(discord_token)
     .catch(err => console.log(err));
 var queuMap = {};
+var msgSet =new Set();
 
 client.on('ready', () => { console.log("im in... ") });
 client.on('message', (message) => {
@@ -56,17 +57,26 @@ client.on('message', (message) => {
         default:
             //pregunta is el comando existe
             if (com.commands.getPrefixes().includes(content)) {
-                Object.keys(queuMap).includes(guildId)?queuMap[guildId].push(objQueue)
+
+                Object.keys(queuMap).includes(guildId)?add2Queue(guildId,objQueue,message)
                             :startQueue(com.commands.list[content].path,message,guildId,objQueue);
             }
             break;
     }
 });
 
+
+function add2Queue(guildId,objQueue,message){
+    queuMap[guildId].push(objQueue);
+    msgSet[guildId].push(message);
+}
+
 function startQueue(path,message,guildId,objQueue){
     queuMap[guildId] = new Array;
+    msgSet[guildId]= new Array;
     playMp3Qsaen(path, message,guildId);
     queuMap[guildId].push(objQueue);
+    msgSet[guildId].push(message);
 }
 
 
@@ -86,11 +96,11 @@ function playMp3Qsaen(pathMp3, message, gid) {
                     if (queuMap[gid].length > 0) {
                         let wtf = queuMap[gid];
                         let con = wtf[0].cont;
-                        message.delete(500);
                         playMp3Qsaen(com.commands.list[con].path,message, gid);
-
                     } else {
                         delete queuMap[gid];
+                        msgSet[gid].forEach(m => m.delete());
+                        delete msgSet[gid];
                         voiceChannel.leave();
                     }
                 }).catch(
