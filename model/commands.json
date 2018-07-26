@@ -61,5 +61,7 @@
     "-mx":{"desc":"saludos  ", "url":"","text":"","path":"/max.mp3"},
     "-4m":{"desc":"mother russia ", "url":"","text":"","path":"/4mrs.mp3"},
     "-qb":{"desc":"q bueno q se gfue  ", "url":"","text":"","path":"/qbueno.mp3"},
+    "-sh":{"desc":"sexual harassment", "url":"","text":"","path":"/sxhrsmnt.mp3"},
+    "-dt":{"desc":"dont touch me ", "url":"","text":"","path":"/donttouchme.mp3"},
     "-am":{"desc":"andate al amierda  ", "url":"","text":"","path":"/andatealamierda.mp3"}
 }
